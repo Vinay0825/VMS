@@ -10,6 +10,8 @@ connectDB();
 app.use(express.json()); // lets Express parse JSON request bodies
 app.use('/api/auth', require('./routes/auth'));
 
+app.use('/api/visitors', require('./routes/visitor'));
+
 app.get('/', (req, res) => {
   res.json({ message: "VMS server running" });
 });
