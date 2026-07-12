@@ -6,10 +6,19 @@
 - Seed: admin@vms.com created
 - POST /api/auth/login → JWT working
 - middleware/auth.js + middleware/role.js — tested ✅
+- utils/emailService.js — Nodemailer sendMail() ✅
+- routes/visitors.js — skeleton (POST /, GET /approve/:token, GET /deny/:token) ✅
+- controllers/visitorController.js → createVisitor — visitor doc creation
+  (server-hardcoded status: "pending") ✅ + approval JWT token generation ✅
+
+### In progress
+- controllers/visitorController.js → createVisitor
+  - Next: build approve/deny links from approvalToken, call sendMail() to hostEmail,
+    res.status(201).json(visitor)
 
 ### Next immediate step
-- POST /api/visitors — visitor entry + approval email to host
-- Files: routes/visitors.js, controllers/visitorController.js, utils/emailService.js
+- Finish createVisitor (email send + response)
+- Then: approveVisitor / denyVisitor controller logic (verify token, update status)
 
 ### Stack
 Node/Express/MongoDB Atlas/JWT/Nodemailer | Repo: github.com/Vinay0825/VMS
